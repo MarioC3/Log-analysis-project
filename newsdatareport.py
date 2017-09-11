@@ -9,17 +9,18 @@ Python program that returns 3 reports from the newsdata.sql database:
 
 import psycopg2
 
+
 # 1. What are the most popular three articles of all time?
 def reporting_3_popular():
     '''
     Function that connects to the newsdata sql database and returns
     the most popular 3 articles of all time.
     '''
-    #Connects to database news
+    # Connects to database news
     conn = psycopg2.connect("dbname=news")
     cursor = conn.cursor()
-
-    # To execute the query you will need to create the view 'popular3' (See README 1.2)
+    # To execute the query you will need to create the view 'popular3' 
+    # (See README - Notes 1)
     cursor.execute('select * from popular3;')
     result_3_popular = cursor.fetchall()
     conn.close()
@@ -28,17 +29,19 @@ def reporting_3_popular():
     for articles in result_3_popular:
         print('Article: "{}" with {} views'.format(articles[1], articles[0]))
 
+
 # 2. Who are the most popular article authors of all time?
 def reporting_popular_authors():
     '''
     Function that connects to the newsdata sql database and returns
     the authors in popularity descending order (views).
     '''
-    #Connects to database news
+    # Connects to database news
     conn = psycopg2.connect("dbname=news")
     cursor = conn.cursor()
 
-    # To execute the query you will need to create the view 'popularauth' (See README 1.3)
+    # To execute the query you will need to create the view 'popularauth' 
+    # (See README - Notes 2)
     cursor.execute('select * from popularauth;')
     result_popular_authors = cursor.fetchall()
     conn.close()
@@ -47,13 +50,14 @@ def reporting_popular_authors():
     for authors in result_popular_authors:
         print('Author: "{}" with {} views'.format(authors[1], authors[0]))
 
+
 # 3. On which days did more than 1% of requests lead to errors?
 def error_day():
     '''
     Function that connects to the newsdata sql database and returns
     the days with more than 1% of requests that lead to errors:.
     '''
-    #Connects to database news
+    # Connects to database news
     conn = psycopg2.connect("dbname=news")
     cursor = conn.cursor()
 
@@ -75,7 +79,7 @@ def error_day():
     # This will loop in all 31 days of the log
     i = 0
     for days in total_requests:
-        #Checking if the 404 status are more than 1% in each day
+        # Checking if the 404 status are more than 1% in each day
         if error_requests[i][0] > (days[0] * .01):
             # If the statement is true assign a variable on
             # how much the percentage was actually that day.
@@ -93,3 +97,4 @@ print()
 print("3. Day(s) with more than 1% of requests that lead to errors:")
 error_day()
 print()
+
