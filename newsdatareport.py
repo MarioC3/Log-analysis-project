@@ -19,7 +19,7 @@ def reporting_3_popular():
     # Connects to database news
     conn = psycopg2.connect("dbname=news")
     cursor = conn.cursor()
-    # To execute the query you will need to create the view 'popular3' 
+    # To execute the query you will need to create the view 'popular3'
     # (See README - Notes 1)
     cursor.execute('select * from popular3;')
     result_3_popular = cursor.fetchall()
@@ -40,7 +40,7 @@ def reporting_popular_authors():
     conn = psycopg2.connect("dbname=news")
     cursor = conn.cursor()
 
-    # To execute the query you will need to create the view 'popularauth' 
+    # To execute the query you will need to create the view 'popularauth'
     # (See README - Notes 2)
     cursor.execute('select * from popularauth;')
     result_popular_authors = cursor.fetchall()
@@ -97,4 +97,3 @@ print()
 print("3. Day(s) with more than 1% of requests that lead to errors:")
 error_day()
 print()
-
