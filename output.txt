@@ -1,0 +1,15 @@
+Program's Output
+
+1. The most popular 3 articles of all time are:
+Article: "Candidate is jerk, alleges rival" with 338647 views
+Article: "Bears love berries, alleges bear" with 253801 views
+Article: "Bad things gone, say good people" with 170098 views
+
+2. The most popular authors are:
+Author: "Ursula La Multa" with 507594 views
+Author: "Rudolf von Treppenwitz" with 423457 views
+Author: "Anonymous Contributor" with 170098 views
+Author: "Markoff Chaney" with 84557 views
+
+3. Day(s) with more than 1% of requests that lead to errors:
+2016-07-17 - 2.26% of error requests
